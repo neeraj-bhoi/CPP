@@ -1,0 +1,97 @@
+OS
+DATABASE
+constructor
+Commputer Architecture
+
+
+move symantics
+    -> to move data without copyint
+    ->using call by pointer(
+        copying the address into destination and delete the address of source file from original location
+    )
+
+
+lvalue rvalue
+    -int n1 = 10;
+        4 tokens
+
+        int //data type
+        n1  //identifier name given by the programmer
+        =   //assignment operator
+        10  //rvalue(integer literal)
+
+
+move assignment 
+    directly passing rvalue and initialize while receiving
+
+noexcept
+
+nullptr(replacement for NULL in pointers)
+
+
+
+
+|||||||||||||||||||||||||||Scenarios|||||||||||||||||||||||||||||||||||||||||||
+
+
+void Magic( std:: vector<int> val)
+Main() {
+    Magic(...........)
+}
+
+Scenario1:
+    Design the function to accept lvalue and rvalue both. 
+    Allow copy of lvalue and assignment of rvalue
+
+    void Magic( std:: vector<int> val)
+
+    example:
+        a) Magic(std::vector<int> {1, 2, 3, 4}); // assigned to val
+        b) std::vector<int>v1 {1, 2, 3, 4};
+            Magic(v1); //v1's 24 bytes(pointers) sopy to val
+            //copy construction. we ate constructing val by using v1.
+
+Scenario2:
+    lvalue to be accepted by reference.
+    no rvalues(temporaries, no ownership transfer)
+    no copy of data. Data should become accessible in Magic
+
+    void Magic( std:: vector<int>& val) // with reference
+
+    example:
+        a) std::vector<int> v1 {1, 2, 3, 4};
+            Magic(v1);
+
+            Magic(std::vector<int> {1, 2, 3, 4}) // compiler error
+
+Scenario3:
+    i only want a single copy of data.
+    i only want rvalues so that user cannot create a duplicate copy of data in main function
+    data shold no longer be owned by main
+
+    void Magic( std:: vector<int>&& val)
+
+    example:
+            std::vector<int> v1 {1, 2, 3, 4};
+            Magic(v1);  // compiler error
+
+            Magic(std::move(v1));  // lvalue changed to rvalue
+            Magic(std::vector<int> {1, 2, 3, 4})  // directly passing rvalue
+
+Scenario4:
+    i want to design a function where, lvalues are accepted by reference
+    I also want rvalues to be accepted by reference
+
+    [destination function will only see data as read-only].
+
+    void Magic(const std::vector<int>& val)
+    //either lvalue or rvalue whatever is received it is constant
+
+    example:
+            Magic(v1);  // by reference
+
+            Magic(std::vector<int> {1, 2, 3, 4}) // okay!
+
+            Magic(std::move(v1));  // lvalue changed to rvalue
+
+

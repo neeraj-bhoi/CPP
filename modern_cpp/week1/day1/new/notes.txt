@@ -1,0 +1,86 @@
+to be OOP supportable it need to be....
+    -way to create models for data (blueprint)
+    -way to represent state of something(data)
+    -able to execute fuctions based on type of data/ type specific function.
+
+
+
+Abstraction
+    -not providing the implementation details so that
+        a) it can be provided at a later point in the code hierarchy
+        b) We can explain functionality without significant focus on implementation details
+
+Inheritence
+    -Either you specialize the implementation for a specific subcategory 
+    OR
+    -you develop logic which can ve generalized to many types
+    
+polymorphism
+    -to do something in more than one way
+
+Encapsulation
+
+Class & objects
+
+composition
+
+aggregation
+
+Association
+
+
+
+
+
+
+
+
+//day1 concepts
+
+delete and default
+
+member list initialization
+for each
+call by value
+const keyword
+
+
+
+/*
+
+1.essentials of modern CPP
+    cpp but modern
+    revision of previous topics
+
+2.functional programming in modern cpp
+    lambda
+
+3.concurrency in modern cpp and cpp17
+    threading
+    multithreading
+    os guards
+    etc etc..
+
+    optional returns 
+    cpp17 ...
+
+4.STL ULTRA PRO MAX..
+
+*/
+
+
+//resources
+mike shah
+cppcon
+
+nullptr.com
+cppreference
+c++.com
+
+c++ the complete reference(5th edition)  //for revision
+
+effective modern c++(scott meyers)  //for advanced cpp
+
+concurrency in action (anthony wiliams) //for threading, etc etc..
+
+c++ templates the complete guide(I/II) (nicola)  //templates

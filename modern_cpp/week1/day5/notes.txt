@@ -1,0 +1,181 @@
+#data binding: The concept of relating/binding member functions with data member
+    (if a function is inside a class -> that needs to access atleast one data member of class)
+    (otherwise no need to be in class)
+
+#Encapsulation: hide the internal representation of the object from any party/entity/line of
+    code outside the class. you can use data binding to accessthis by simply providing member
+    functions as layer between data and outside world.
+
+#abstraction: Hiding the implementation detail of a behaviour/functionality so that : 
+    a)It allows programmers to reimplement a functionality in a different way down the class hierarchy
+        by overriding in child class
+    b)by using abstraction we can talk in "ABSTRACT" terms while explaining behaviour.
+
+#virtual
+/*
+    scenario1: I want to model some data. Bind members with accessible
+        perform basic operations
+        - create a simple class
+        - Bind data members with member functions. keep all data private
+
+    scenario2: I want to create types and subtypes so that i can generalize operations or implement
+        specific solutions for specific sub category
+        -create a parent class and appropriate child classes
+        -then , ask the following questions:
+
+            a)are all methods implemented in all classes?
+                -if yes, no need for pure virtual functions
+            b)are we going to create objects of multiple child classes and
+                store them together in the same container?
+                -if yes, we need to use upcasting
+                -Base class methods must be marked as virtual
+                -destructor must be marked virtua
+            c)do we need to prevent instanciation(object creation) for base class
+                do we need to make base class abstract ?
+                -make sure atleast atleast one method in parent is pure virtual
+            d)I'm not very sure if method will be overriden. maybe in future, not sure currently
+                -mark all such method as virtual
+*/
+
+#dyanamic method dispatch
+/*
+    class A {
+        ...
+        [static hidden member created] *vptr;               ****
+
+        public:
+            virtual void display() {
+                std::cout<<"A display\n";
+            }
+            void test() {
+                std::cout<<"A test\n";
+            }
+    };
+
+    class B  : public class A{
+        ...
+        public:
+            void display() override{
+                std::cout<<"B display\n";
+            }
+            void test() {
+                std::cout<<"B test\n";
+            }
+    }
+
+    Rule1: for a class that contains atleast 1 virtual method - a virtual table is created in memory
+        this table has addresses for the virtual methods functions
+            {
+                class A VTable
+                [A::Display():: 0x10045H]
+                0x777H
+                  |
+                [vptr]                                      ****
+            }
+    Rule2: if a class inherits from a parent class that also contains a vtable,
+        then the child will also implement its own vtable.
+        (otherwise concept of upcasting fails)
+            {
+                A* ptr = new B();
+                ptr -> Display();   //B ka display(latest)
+                ptr -> A::Display();    //A ka display
+                ptr -> test();      //A ka test (non-virtual)
+                    //step1 : verify where is Display()
+                        -go to class whose type is ptr's type
+                        -go to A class. Verify whether this function is atleast declared in class a
+                    //step2 : verify if the method is non-virtual. if yes, call the function
+                        {for non-virtual functions LHS type matters only}
+                    //step3 : if virtual (in step2)
+                        -now find the type of RHS(object type). Find the vtable for object and call function
+                            based on entry in vtable.
+            }
+
+    /*
+    Assumption: pointer is of parent
+        1) I want to call fn . fn exists in the parent, and child. fn is non-virtual.
+            - you can use ptr->fn() // calls parent class fn
+            - you can use dynamic cast to convert ptr into child type and then call child::fn
+        2) I want to call fn . fn exists in the parent, and not in child. fn is non-virtual.
+            - you can use ptr->fn() // calls parent class fn
+            - you should not use dyanamic casting because fn does not exist in the child. so there's no point.
+        3) I want to call fn . fn doesn't exist in the parent, and does exist in child. fn is non-virtual.
+            - you have to do dynamic cast, parent pointer is practically useless.
+
+        4) I want to call fn . fn doesn't exist in the parent, and does exist in child. fn is virtual.
+            -compiler will call the most derived version of fn from inheritence hierarchy
+            {
+                                PARENT
+                              /       \
+                             /         \
+                         CHILD1        CHILD2
+                
+                        Parent *p = new child2();
+            }
+    */
+*/
+
+Errors:
+{
+    /*  errors (example:composition)
+
+        1) undefined reference to <function-name>
+            - declaration but no defination of a function....
+            - function does not exist.
+
+        2) <identifier> not declared in scope
+            - function name being used does not appear in declared symbols
+            - variable declared does not appear in available names
+
+        3) redefinition of <>
+            - if no header guard and multiple #includes for same file
+            
+        4) (too few)/(too amny) arguments to function <> 
+            - when you call a function with less/more arguments than expected
+
+        5) parameter type difference in calling and definition
+            [mismatch of type] | [invalid initialisation of reference]
+            - sometimes compiler tries to automatically typecast, so error might not come.
+            - if universal initialisation using {} without mentioning type : if cannot convert -> error
+            
+
+        6) no matching function call
+            - parameters does not match
+    */
+}
+
+
+
+
+Question:
+    -create a banking system where I can record Customer details, Account Details, Card
+        details and cheque details..
+    -account may have sub category
+
+    Expected operationa are: 
+    -ability to create new account
+    -find details of an account based on ID, calculate min, max, total, or
+        print details of cheque based on cheque number, etc..
+
+/*
+    1)Read the problem statement completely twise atleast..
+    2)complete program only when it is fully completed
+    3)always work on individual function at a time only.
+        Breakdown entire solution into small small sections!
+    4)always draw a diagram
+    5)spend more in designing the solution for each functionality rather than implementing it
+
+*/
+
+/*
+    -E      //preprocesses
+    -c
+    objdump -Cd ./outputFile | less
+*/
+
+/*
+    compilers
+        // gcc/g++ - GNU GCC
+        // clang compiler : apple
+        // MSVC : microsoft
+*/
+

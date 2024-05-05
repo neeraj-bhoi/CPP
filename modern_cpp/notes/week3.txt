@@ -1,0 +1,30 @@
+
+week3{
+        - std::thread
+        - one thread
+        - container of threads
+        - std::mutex for race condition
+        - std::lock_guard to manage mutex based on scope
+
+    if initializer
+
+    std::optional
+
+    structured binding
+
+    varients
+        - functional polymorphism
+        - std::visit, std::holds_alternative
+
+    condition variable
+        - unique_lock
+        - notify()
+
+    variadic template
+
+    std::async
+        - with future_input
+        - without future_input
+
+    fold expressions
+}

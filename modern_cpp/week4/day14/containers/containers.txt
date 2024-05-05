@@ -1,0 +1,116 @@
+seguay : a smooth transition
+
+
+{
+    [ 101 |  "Rohan" | 87000 | "Developer" ]
+
+    [ 102 |  "Ajay" | 7000 | "Tester" ]
+
+    [ 103 |  "Harshit" | 77000 | "Trainer" ]
+}
+
+____________________________________________________________________________________
+
+option 1 {
+    store objects in fixed sized container with contigous storage..
+    Benefits :  - random access
+                - easy to find next and previous
+                - no tension of resize or change in length
+
+    Answer : Array data structure
+    CPP implementation :: std::array<T, N, ______>
+
+    use if{
+        1 : fixed size
+        2 : no unneccessary malloc
+        3 : accessing with index position
+    }
+
+    Note : An array of size N when declared, immediately reserves space for N items. this means,
+        N default constructions will happen at the time of declaration.
+        
+        std::array<Employee, 3>         // default constructor required
+        std::array<Employee*, 3>        // default constructor not required
+};
+
+
+option 2 {
+    store objects in dynamically resizable container which can be used like an array with
+    reservations for elements or by pushing when required and resizing if neccessary
+
+    Answer : Vector arrangement
+    CPP implementation : std::vector<T, _______>
+
+    Benefits{
+        - resizable during runtime
+        - you can access elements vis index randomly
+    }
+    Note {
+        - if you add elements beyond capacity, vector has to readjust.
+            Sometimes vector cannot expand adjacent to its boundry, in such cases,
+            a complete shift of data happens
+    }
+};
+
+option 3 {
+    store data anywhere in RAM as long i can fetch it when i want. Data items should be linked
+    to each other.
+
+    Answer : linked list
+    CPP implementation :    std::forward_list       --> singly linked list
+                       :     std::list               --> doubly linked list
+}
+
+____________________________________________________________________________________
+
+{
+    [ 101 |  "Rohan" | 87000 | "Developer" ]
+
+    [ 102 |  "Ajay" | 7000 | "Tester" ]
+
+    [ 103 |  "Harshit" | 77000 | "Trainer" ]
+}
+
+____________________________________________________________________________________
+HASH
+
+
+- 9 items at max
+    101 % 9 = 2 // row 2{ HASH VALUE }
+    102 % 9 = 3 // row 3
+
+
+    [   ]           [           ]                                   row[0]
+    [   ]           [           ]                                   row[1]
+    [101]           [[ 101 |  "Rohan" | 87000 | "Developer" ]]      row[2]
+    [103]           [[ 102 |  "Ajay" | 7000 | "Tester" ]]           row[3]
+    [   ]           [           ]                                   row[4]
+    [   ]           [           ]                                   row[5]
+    [   ]           [           ]                                   row[6]
+    [   ]           [           ]                                   row[7]
+    [   ]           [           ]                                   row[8]
+
+    /*
+        fix a mathematical way of finding where to put the data[which way],
+        we can use the same mathematical formula to determine where my data is when i need to read it later
+        { HASH FUNCTION }
+
+        eg. ->    modulus 9. 
+    */
+
+    /*
+        NOW - to find the salary of the employee whose employee ID is 103
+            102 % 9 = 3;
+            (check row 3)
+    */
+
+    PROBLEMS {
+        collisions..
+
+        Solution : 
+            open chaining : store in next empty space
+            saperate chaining : linked list in same row...
+    }
+
+
+- infinite data in future

@@ -1,0 +1,127 @@
+-lpthread //thread support
+time  //to see time
+for(( i = 0; i < 50; i++)); do ./sample3; done
+
+
+1) What are we doing?
+   -We are trying to do more work in our program per second or in other words i nwant more efficiency in my program for which i want to use my hardware better
+ 
+2) How
+    - By using the os for support . We are asking the os to run independent sections of my program parallely if possible or concurrently
+ 
+3) Syntax wise what to do ?
+  - Each of your independent functions can be treated as logical threds. They can be scheduled by os if you create a thread object and attach it to one callable with right parameters
+ 
+  -Also remember to wait for threads to finish
+  Or 
+  Detach from spawned threads
+ 
+4) Why did you join ?
+- Because main thread cannot finish before other threads as spawned threads need to report back to main via signals.
+If main is already finished, then thread has to become 
+daemon (a thread running in the background!).
+ 
+5) What is std:: thread?
+ 
+- It is a class which is a wrapper around a native platform specific Os- level thread. It can be used as a object. std:: thread is the type of the mini thread.
+ 
+6) Can we copy threads ?
+  -No, Because one a mini program is started, copying it would mean duplicating it and doing the same thing again!
+ 
+ 
+7) Can we make a container of thread?
+  - Yes, since thread instanc3es are objects, you can do this.
+ 
+ 
+8) What is a race condition?
+- 2 or more threads are fightin to perform a write operaion on a shared memory
+ 
+9) What is a critical section ?
+ 
+- any part of the progrma where race conition can happen to cause daa integrity issue , incoherent output or worse
+ 
+10) How to avoid race condition?
+- Take actions to synchronize threads expecialy for  critical sections
+ 
+11) Syntactically, how to do this?
+- Choose between the plethora(too many) of available choices for synchronization primitived
+ 
+- mutex: a binary semaphore which needs to be locked/unlocked mamnually
+ 
+- lock_guard: which is a scope based lock that uses RAII
+ 
+- unique_lock: It can be locked/ unlocked manually as well with RAII rules
+ 
+- recursive locks: if you want to use recurssion and thread (WHY do this yaar!)
+ 
+- condition variable : to implement synchronization based on Producer/Consumer model
+ 
+ 
+12) How will you know which one to Choose
+- common sense
+ 
+13) How will i learn all this
+-Thats where harshit comes into the picture!!
+- also , cppcon and concurrency in Action books are great resources
+ 
+14) All this sounds like OS level stuff why am I learning it 
+- Because you chose to make your life miserable
+- Because all developers need to use hardware efficienty
+ 
+15) What is synchronus and asynchronus 
+- If you start command/instruction  N  only after command/ instruction N-1 is fully completed execution is synchronus
+ 
+else 
+asynchronus
+ 
+16) Is async the same as other languages
+-Yes
+
+
+
+// mutex lock in try catch
+{
+  try{
+    mt.lock();
+    amount -= 10;
+    PerformActionAfterModification();
+    mt.unlock();                          // for everycondition have to do it...
+  } catch(std::runtime_error& ex) {
+    mt.unlock();                        // not good practice
+    std::cout<<ex.what()<<"\n";
+    RecordLogsOfException();
+  }
+}
+
+
+/////////////////////////////
+{
+  try{
+    mt.lock();
+    amount -= 10;
+    PerformActionAfterModification();
+    mt.unlock();                          // for everycondition have to do it...
+  } catch(std::runtime_error& ex) {
+    mt.unlock();                        // not good practice
+    std::cout<<ex.what()<<"\n";
+    RecordLogsOfException();
+  }
+}
+
+
+SOLUTION
+// 
+{
+  try{
+    std::lock_guard<std::mutex> lk (mt);
+    amount -= 10;
+    PerformActionAfterModification();
+  } catch(std::runtime_error& ex) {
+    std::cout<<ex.what()<<"\n";
+    RecordLogsOfException();
+  }
+}
+
+
+
+singleton class : only one object must be created..

@@ -1,0 +1,4 @@
+mutable
+closure
+capture
+closure lambda scope

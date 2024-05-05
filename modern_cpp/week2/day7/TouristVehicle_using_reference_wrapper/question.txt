@@ -1,0 +1,41 @@
+Create a class TouristVehicle with the following attributes
+● _number which indicates the registered alphanumeric number of the vehicle.
+● _type which is either CAB, BUS or BIKE indicating the category of TouristVehicle.
+● _seat_count which is an integer indicating the seating capacity of the TouristVehicle.
+● _per_hour_booking_charge which indicates the amount to book the TouristVehicle for an hour and is a
+float value.
+●
+_permit which is a shared pointer to an instance of Permit class to represent the TouristVehicle's permit. If
+the TouristVehicle instance is destroyed, _permit instance associated with it should also be destroyed.
+Create a class Permit with the following attributes
+● _serial_number indicating the identification number which is an alphanumeric value.
+● _permit_type which is either LEASE or OWNED indicating the type of the Permit.
+● _permit_duration_left which is an integer value to indicate the remaining validity of the Permit (in days).
+Enable/Disable special member functions as per your requirements.
+Create the following functionalities in functionalities.cpp file (with a suitable header file)
+●
+A function to create at least 3 TouristVehicle instances on the heap and store pointers to these instances in
+a list container.
+●
+A function to find and return pointers to first N in instances of TouristVehicle in a container that satisfy both
+of the following conditions
+○ _seat_count of the TouristVehicle instance is at least 4.
+○ _permit instance's _permit_type is LEASE.
+Note : N may be invalid due to many reasons including N beyond the number of instances. Handle such
+cases with proper exceptions
+●
+A function to find and return the average _per_hour_booking_charge value for all TouristVehicle
+instances in the container that are of type matching with the second parameter passed to the function. (Type
+can be accepted from the user as console input).
+●
+A function to find the TouristVehicle instance for which _per_hour_booking_charge is maximum and
+return its _permit instance's _serial_number.
+●
+A function to return the first N instances of TouristVehicle in the container.
+Demonstrate all functionalities by creating a suitable Main.cpp file with client code
+Note:
+●
+Implement a try-catch mechanism to handle exceptions thrown from functionalities in the client
+code.
+●
+Add comments wherever applicable throughout the solution. 

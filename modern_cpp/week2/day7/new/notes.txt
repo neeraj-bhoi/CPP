@@ -1,0 +1,12 @@
+void Adaptor( LOGIC )
+
+1) app starts --> App id It has to be carried into the second function
+
+2) network setup : we get ip address and port number has to be carried in third function
+
+3) using network config, setup data transfer to a database.
+    connection will be extablished
+        -we get a database connection cursor object. take this to fn4
+
+4)using database access pointer, write data into database
+    -use cursor to execute write query

@@ -1,0 +1,26 @@
+ptr [ 0x100H ]
+   0x11H
+
+{
+    name = ptr
+    content = 0x100H
+    size = 8 bytes
+    address = 0x11H
+}
+
+
+explicit process
+/*
+    Pop
+    throw StackEmptyException("Data is Empty")
+
+    compiler will identify StackEmptyException class and
+    calls the constructor of custom exception class
+    |
+    |
+    |
+    object of type custom exception
+    [stored in catch table]
+
+    [<objname>.what() will return _msg ]
+*/

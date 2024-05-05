@@ -1,0 +1,14 @@
+time complexity is not measured in units of time,
+it is always concerned about "how many operations
+Time complexity analysis{
+    - always find relation between N (number of input items) and operation where "operation"
+        is context specific
+        eg. in linear search -> operation is "access element and compare"
+            int binary search -> check middle -> if found "okay", else "divide
+}
+
+
+//linear search
+    - O(N)
+    - operation : Access itams and compare
+

@@ -1,0 +1,30 @@
+/*
+    if you take pointer of class B in class A
+    we say that class A is composed with class B as a member
+
+    if you take reference of class B in class a
+    we say that class A is aggregated with class B as a member
+*/
+
+composition:
+    if class A if destroyed, attached class B object should also be destroyed.
+
+Aggregation:
+    if class A if destroyed, attached class B object should not be destroyed.
+
+
+
+/*
+    mendatory:
+        1: indentation
+        2: naming convention
+        3: appropriate comments
+        4: multiple files
+        5: all functionalities working with proper output, corner case,
+        6: Main side client code
+
+    less relevent:
+        1: use of smart pointers(for week 1)
+        2: custom exceptions(for week 1&2)
+        
+*/

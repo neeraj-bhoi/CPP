@@ -1,0 +1,17 @@
+CPP topics but modern cpp style...
+
+day1
+    -default & deleted special member function
+    -override
+    -member list initialization
+    -constructor delegation
+
+day2
+
+    -common initialiazation using -> {}
+    -in-class initialiazation
+    -enum class
+    -for-each
+    -using keyword
+    -auto
+    -decltype

@@ -1,0 +1,95 @@
+day 1{
+    -default & deleted special member function {
+        - we can enable or disable specific constructors and destructor.
+        - 'default' is used to enable default behaviour
+            (better than using blank curly braces, it implements default behaviours of the constructor)
+        - 'delete is used to disable the specific type constructor or destructor
+    }
+
+    -override {
+        - override is used when we override any function from the base class to check everything is
+            implemented properly
+        - if any function is termed overriden, compiler checks in base class for a virtual function
+            with same signatures, if it is not found compiler shows error.
+    }
+
+    -member list initialization {
+        - initialiazation of data members in the constructor using ':' and _values{values} saperated
+            by ','.
+        - it initializes the data rather then defining it and then assiginng.
+        - sometimes it is compulsary to use : 
+            - like when using non static const data member, you cannot assign the value 
+                in constructor, you need to use list initializer.
+            - for initialiazation of reference data member in class
+            - to call another special constructor, or base class constructor(constructor delegation).
+    }
+
+    -constructor delegation {
+        constructor calling another constructor of the same class.
+        decreases redundency of code, and helps pass the required paramentes to the required constructor.
+    }
+}
+
+
+day2 {
+    -common initialiazation using -> '{}' {
+        initialize any iterative and index based data type using '{}'
+    }
+
+    -   
+    -enum class {
+        advantages over enum :
+            -two enumerations can share same name
+            -variables can be of the same name as enumerations
+            -Enums are not type-safe, in enum class we use CLASS::ENUMNAME for specific type
+            -enum class has more control over underlying type : 
+                it can be any integral data type such as : char, short or unsigned int,
+                which essentially serves to determines the size of the type.
+    }
+    
+    -for-each {
+        -used to iterate over the elements in conatiner(array, vector etc..) without performing initialization,
+            checking and updation.
+        -Working : do something for each element, rather than do something n times.
+
+        for (data_type  variable_name : container_name) {
+            operations using variable_name
+        }
+    }
+
+    -using keyword {
+        - tool that allows to specify the use of a particular namespace. (allows shorthand)
+        - usecases :
+            - Using for namespaces      -> using namespace std;
+            - Using for inheritance     -> using Base::Base;
+            - Using for aliasing        -> using ll =  long long;
+            - Using for directives      -> using std::cout, using std::endl;
+    }
+
+    -auto
+    -decltype
+}
+
+day3 {
+    -move symantics(std::move)
+    -rvalue references(&&)
+    -lvalue & rvalue
+    -move assignment
+    -noexcept
+    -nullptr
+}
+
+day4 {
+    -explicit
+    -stack
+    -smart pointer
+    -static and dyanamic cast
+}
+
+day5 {
+    -data binding vs Encapsulation
+    -abstraction
+    -virtual keyword
+    -dynamic method dispatch
+    -errors
+}

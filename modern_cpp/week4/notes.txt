@@ -1,0 +1,57 @@
+threads
+array of threads
+return values on threads
+async threads
+
+varients
+visit
+holds_alt
+
+//wherever needed
+
+optional
+if_init
+structured binding..
+
+
+
+
+-Werror -Wextra
+
+
+
+
+
+/*
+    1) count_if
+
+    2) find_if
+
+    3) all_of
+
+    4) any_of
+
+    5) none_of
+
+    6) copy
+
+    7) copy_if
+
+    8) accumulate
+
+    9) max_element
+
+    10) min_element
+
+    11) transform
+*/
+
+while working on a map each entry is a pair of key and values
+
+the pair which you fetch is an rvalue, since it is returned from somewhere.
+
+which is why we need to use const lvalue reference.
+
+and copy constructure of pair is disabled, so & is neccessary
+
+we can only use a pair in paramenter using const lvalue reference.

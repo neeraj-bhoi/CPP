@@ -1,0 +1,64 @@
+setting in bash rc
+
+-std=c++17  --------------------------------> cpp17 compile
+
+for((i = 0; i < 50; i++)); do ./sample3; done -------------> looping over
+
+time ./sample2  -------------------------> show time 
+
+lscpu -----------> cpu information
+
+
+
+
+Command line (basic usage)
+Git version control
+makefiles and cmake
+
+Great understanding of OOP
+
+-effective modern CPP(modern book)
+-C++ the complete reference(Basic book)
+
+
+
+normal exceptions does not work in async..
+future exceptions --------------------------********
+
+
+
+
+week3{
+        std::thread
+        - one thread
+        - container of threads
+        - std::mutex for race condition
+        - std::lock_guard to manage mutex based on scope
+
+    if initializer
+
+    std::optional
+
+    structured binding
+
+    varients
+        - functional polymorphism
+        - std::visit, std::holds_alternative
+
+    condition variable
+        - unique_lock
+        - notify()
+
+    variadic template
+
+    std::async
+        - with future_input
+        - without future_input
+
+    fold expressions
+}
+
+
+conditional variable | singleton
+async
+varients

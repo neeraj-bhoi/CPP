@@ -1,0 +1,67 @@
+day1
+    -default & deleted special member function
+    -override
+    -member list initialization
+    -constructor delegation
+
+day2
+    -common initialiazation using -> {}
+    -in-class initialiazation
+    -enum class
+    -for-each
+    -using keyword
+    -auto
+    -decltype
+
+day3
+    -move symantics(std::move)
+    -rvalue references(&&)
+    -lvalue & rvalue
+    -move assignment
+    -noexcept
+    -nullptr
+
+day4
+    -explicit
+    -stack
+    -smart pointer
+    -static and dyanamic cast
+
+day5
+    -data binding vs Encapsulation
+    -abstraction
+    -virtual keyword
+    -dynamic method dispatch
+    -errors
+
+
+- function pointers
+- function wrapper{
+        - a way to capture any callable in a type-erased way
+        - can be used for
+            - pass a callable as a paremeter
+            - return a callable as a value
+            - Save functions as objects/values in container variables
+    }
+- reference wrapper{
+        - object that internally stores reference.(reference to something)
+        - it uses pointer to reference conversion internally
+        - it can be replacement for raw references everywhere in the code.
+        - Rvalues cannot be converted to reference wrapper
+    }
+- bind{
+        - used to create a (a function where parameters are already fixed)
+        - redesign or tweak the sequence of parameters by swapping or repositioning them as per requirement.
+    }
+
+
+
+cxxtestgen
+
+network connections
+sockets, connections ports
+how to create server and client connections
+
+unit testing
+threading
+
